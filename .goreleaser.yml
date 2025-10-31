@@ -21,7 +21,7 @@ archives:
     builds:
       - kroki-cli
     files:
-      - README.md
+      - README.adoc
       - LICENSE
 
 checksum:
