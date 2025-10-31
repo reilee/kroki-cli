@@ -1,32 +1,32 @@
+version: 2
 project_name: kroki-cli
 
-before:
-  hooks:
-    - go mod download
-
 builds:
-  -
-    env:
-      - CGO_ENABLED=0
-    binary: kroki
-    main: ./cmd/kroki/
+  - id: kroki-cli
+    dir: .
+    main: ./cmd/kroki-cli/main.go  # adjust path to your main package
     goos:
-      - windows
-      - darwin
       - linux
-      - openbsd
+      - darwin
+      - windows
     goarch:
       - amd64
       - arm64
+    ldflags:
+      - -s -w
 
 archives:
-  -
-    format_overrides:
-      - goos: windows
-        format: zip
+  - id: default
+    format: tar.gz
+    builds:
+      - kroki-cli
+    files:
+      - README.md
+
+checksum:
+  name_template: "checksums.txt"
 
 release:
   github:
-    owner: yuzutech
+    owner: reilee
     name: kroki-cli
-  draft: true
