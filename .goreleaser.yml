@@ -4,7 +4,7 @@ project_name: kroki-cli
 builds:
   - id: kroki-cli
     dir: .
-    main: ./cmd/kroki-cli/main.go  # adjust path to your main package
+    main: ./cmd/kroki/main.go  # adjust path to your main package
     goos:
       - linux
       - darwin
@@ -22,6 +22,7 @@ archives:
       - kroki-cli
     files:
       - README.md
+      - LICENSE
 
 checksum:
   name_template: "checksums.txt"
