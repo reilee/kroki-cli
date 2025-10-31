@@ -5,6 +5,7 @@ builds:
   - id: kroki-cli
     dir: .
     main: ./cmd/kroki/main.go  # adjust path to your main package
+    binary: kroki
     goos:
       - linux
       - darwin
